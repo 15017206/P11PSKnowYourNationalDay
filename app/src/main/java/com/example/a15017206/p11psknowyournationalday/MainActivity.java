@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
     String[] listNDPfacts = {"Singapore National Day is on 9 Aug", "Singapore is a 52 years old", "Theme is '#OneNationTogether'"};
     String bodyText = "";
     int score = 0;
+    int doAll = 0;
 
     RadioGroup rg1, rg2, rg3;
 
@@ -147,10 +148,12 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
                     score = 0;
-                    if (checkedId == R.id.t1){
-
-                    } else if (checkedId == R.id.f1){
+                    doAll = 0;
+                    if (checkedId == R.id.t1) {
+doAll++;
+                    } else if (checkedId == R.id.f1) {
                         score++;
+                        doAll++;
                     }
                 }
             });
@@ -159,10 +162,11 @@ public class MainActivity extends AppCompatActivity {
             rg2.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                    if (checkedId == R.id.t2){
+                    if (checkedId == R.id.t2) {
                         score++;
-                    } else if (checkedId == R.id.f2){
-
+                        doAll++;
+                    } else if (checkedId == R.id.f2) {
+                        doAll++;
                     }
                 }
             });
@@ -170,11 +174,14 @@ public class MainActivity extends AppCompatActivity {
             rg3.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
                 @Override
                 public void onCheckedChanged(RadioGroup group, @IdRes int checkedId) {
-                    if (checkedId == R.id.t3){
+                    if (checkedId == R.id.t3) {
                         score++;
-                    } else if (checkedId == R.id.f3){
-
+                        doAll++;
+                    } else if (checkedId == R.id.f3) {
+                        doAll++;
                     }
+
+
                 }
             });
 
@@ -185,17 +192,27 @@ public class MainActivity extends AppCompatActivity {
                     .setPositiveButton("Done", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int id) {
-                            Toast.makeText(MainActivity.this, "Your score is: "+score, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(MainActivity.this, "Your score is: " + score, Toast.LENGTH_SHORT).show();
                         }
                     })
                     .setNegativeButton("Dont know lah", new DialogInterface.OnClickListener() {
-                public void onClick(DialogInterface dialog, int id) {
-                    Toast.makeText(MainActivity.this, "Thats great", Toast.LENGTH_SHORT).show();
-                }
-            });;
-
+                        public void onClick(DialogInterface dialog, int id) {
+                            Toast.makeText(MainActivity.this, "Thats great", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+            ;
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
+//            alertDialog.getButton(alertDialog.BUTTON_POSITIVE).setEnabled(false);
+
+//        if (doAll ==3) {
+//            alertDialog.getButton(alertDialog.BUTTON_POSITIVE).setEnabled(true);
+//        } else {
+//            alertDialog.getButton(alertDialog.BUTTON_POSITIVE).setEnabled(false);
+//        }
+
+
+
         } else if (item.getItemId() == R.id.quit) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
             builder.setTitle("Are you sure?")
