@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/quit"
+        android:icon="@android:drawable/ic_delete"
+        android:title="Quit"
+        app:showAsAction="withText|always" />
+    <item
+        android:id="@+id/sendtofriend"
+        android:title="Send to Friend" />
+    <item
+        android:id="@+id/quiz"
+        android:title="Quiz" />
+    <item
+        android:id="@+id/logout"
+        android:title="Logout" />
+</menu>
