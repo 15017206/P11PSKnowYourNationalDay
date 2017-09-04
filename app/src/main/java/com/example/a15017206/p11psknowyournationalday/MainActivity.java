@@ -124,12 +124,9 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Sending via Email", Toast.LENGTH_SHORT).show();
                                 sendEmail();
 
-
                             } else if (which == 1) {
                                 Toast.makeText(MainActivity.this, "Sending via SMS", Toast.LENGTH_SHORT).show();
                                 sendSMSMessage();
-
-
                             }
                         }
                     });
@@ -150,7 +147,7 @@ public class MainActivity extends AppCompatActivity {
                     score = 0;
                     doAll = 0;
                     if (checkedId == R.id.t1) {
-doAll++;
+                        doAll++;
                     } else if (checkedId == R.id.f1) {
                         score++;
                         doAll++;
@@ -203,15 +200,6 @@ doAll++;
             ;
             AlertDialog alertDialog = builder.create();
             alertDialog.show();
-//            alertDialog.getButton(alertDialog.BUTTON_POSITIVE).setEnabled(false);
-
-//        if (doAll ==3) {
-//            alertDialog.getButton(alertDialog.BUTTON_POSITIVE).setEnabled(true);
-//        } else {
-//            alertDialog.getButton(alertDialog.BUTTON_POSITIVE).setEnabled(false);
-//        }
-
-
 
         } else if (item.getItemId() == R.id.quit) {
             AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -313,7 +301,6 @@ doAll++;
         String[] CC = {"hkk@gmail.com"};
 
         Intent emailIntent = new Intent(Intent.ACTION_SEND);
-
 
         emailIntent.setData(Uri.parse("mailto:"));
         emailIntent.setType("text/plain");
